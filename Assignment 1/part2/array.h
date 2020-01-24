@@ -5,106 +5,197 @@
 #include "object.h"
 
 /**
- * @brief Array class. This is somewhat based off of how ArrayLists are implemented 
- * in Java8 (https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)
- * except that this class does not have the functionality of a list. 
+ * @brief Array class. Represents a list of any Object.
  * 
+ * @note Included functions inspired by the methods described in the interface for the Java 8 ArrayList class:
+ * https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
  */
 class Array : public Object
 {
     /**
-     * @brief add the Object o (if it is the same type as the rest of the list) to the end of the array
+     * @brief Adds a given Object to the end of the Array if that Object is of the same type as the rest of the Objects in the Array
      * 
-     * @param o 
-     * @return true 
-     * @return false 
+     * @invariant All Objects in this Array are of the same type
+     * 
+     * @param o the Object to be added to this Array
+     * @return true if the Object was added successfully
+     * @return false if the Object was NOT added successfully
      */
     bool add(Object *o) {}
 
     /**
-     * @brief add the Object o (if it is the same type as the rest of the list) to the given 
-     * index of the array (pushes remaining elements down one array)
+     * @brief Adds a given Object to the given index of the Array if that Object is of the same type as the rest of the Objects in the Array.
      * 
-     * @param o 
-     * @param index 
+     * @note Pushes the elements at and after @param index down to the end by one index
+     * 
+     * @param o the Object to be added to this Array
+     * @param index the index at which the given Object is to be added
+     * @return true if the Object was added successfully
+     * @return false if the Object was NOT added successfully
      */
     void add(Object *o, size_t index) {}
 
     /**
-     * @brief add all elements from Array a to the end of this array
+     * @brief Adds all Objects from a given Array to the end of this Array, if the Objects in that Array are of the same type
+     * as the Objects in this Array
      * 
-     * @param a 
+     * @param a the Array whose Objects will be added to this Array
+     * @return true if all the Objects in the given Array were added successfully
+     * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
     void addAll(Array *a) {}
 
     /**
-     * @brief add all elements from Array a to the given index in this array 
-     * (pushes the rest elements down after where Array a's are inserted)
+     * @brief Adds all Objects from a given Array at the given index in this Array, if the Objects in that Array are of the same type
+     * as the Objects in this Array 
      * 
-     * @param a 
-     * @param index 
+     * @note Pushes the elements at and after @param index down to the end by one index
+     * 
+     * @param a the Array whose Objects will be added to this Array
+     * @param index the index at which the Objects in the given Array are to be added
+     * @return true if all the Objects in the given Array were added successfully
+     * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
     void addAll(Array *a, size_t index) {}
 
     /**
-     * @brief clears all elements from the array
+     * @brief Removes all Objects from this Array
      * 
      */
     void clear() {}
 
     /**
-     * @brief returns true or false if the object o is in the array
+     * @brief Copies this Array by initializing a new Array and copying all the elements from this Array
+     * into a new Array
      * 
-     * @param o 
-     * @return true 
-     * @return false 
+     * @return Object* a copy of this Array
+     */
+    Object *clone() {}
+
+    /**
+     * @brief Checks if this Array contains the given Object
+     * 
+     * @param o the Object to check for equality to at least one Object contained in this Array
+     * @return true if the given Object is equals() to at least one Object contained in this Array
+     * @return false if the given Object is NOT equals() to ANY Objects contained in this Array
      */
     bool contains(Object *o) {}
 
     /**
-     * @brief get the size of the array (number of elements)
+     * @brief Gets the Object at the given index of this Array
      * 
-     * @param index 
-     * @return Object 
+     * @param index the index in this Array from which to get the Object
+     * @return Object* the Object at the given index in this Array
      */
-    Object get(size_t index) {}
+    Object *get(size_t index) {}
 
     /**
-     * @brief remove the element at index in the array 
-     * (if index does not exist, then return an error)
+     * @brief Calculates the hashcode for this Array
      * 
-     * @param index 
+     * @return size_t the hashcode for this Array
      */
-    void remove(size_t index) {}
+    size_t hash_me() {}
 
     /**
-     * @brief removes the first instance of the Object o found in the array
+     * @brief Gets the index of this Array containing the first instance of an Object that is equals()
+     *  to the given Object. If the given Object is not equals() to any other Objects in this Array, returns -1
      * 
-     * @param o 
+     * @param o the Object to be compared for equality to Objects in this Array
+     * @return int the index in this Array at which an Object that is equals() to the given Object exists, 
+     * or -1 if such an Object does not exist in this Array
+     */
+    int indexOf(Object *o) {}
+
+    /**
+     * @brief Checks if this Array has no Objects
+     * 
+     * @return true if this Array has no Objects
+     * @return false if this Array has at least one Object
+     */
+    bool isEmpty() {}
+
+    /**
+     * @brief Returns the index of the last occurance of an Object in this Array that equals() 
+     * the given Object if such an Object exists in this Array. Otherwise, returns -1
+     * 
+     * @param o the Object to be checked for equality to all Objects in this Array
+     * @return int the index of an Object in this Array that equals() the given Object, 
+     * or -1 if such an Object does not exist
+     */
+    int lastIndexOf(Object *o) {}
+
+    /**
+     * @brief Removes the Object at the given index in this Array and returns it.
+     * 
+     * @note Pulls the elements at and after @param index up to the front by one index
+     * 
+     * @param index the index in this Array at which to remove the Object
+     * @return Object* the removed Object
+     */
+    Object *remove(size_t index) {}
+
+    /**
+     * @brief Removes the first instance of the Object in this Array that equals() the given 
+     * Object, if such an Object exists in this Array
+     * 
+     * @note Pulls the elements at and after the index at which the equivalent Object in this Array
+     * to the given Object exists up to the front by one index
+     * 
+     * @param o the Object to be compared to all other Objects in this Array for equality
      * @return true if Object o is removed successfully
-     * @return false if Object o is not in the array
+     * @return false if Object o is NOT removed successfully
      */
     bool remove(Object *o) {}
 
     /**
-     * @brief remove a subset of the array specified by Array a 
-     * if array a is a subset of this array, then remove that subset/subarray
+     * @brief Removes the first instance of each Object in this Array that equals() an Object 
+     * in the given Array, if all such Objects exist in this Array
      * 
-     * @param a 
-     * @return true 
-     * @return false 
+     * @note Pulls the elements at and after the index at which each equivalent Object in this Array
+     * to each of the Objects in the given Array exist up to the front by one index as each Object in
+     * this Array is removed
+     * 
+     * @param a the Array whose Objects will be compared to all Objects in this Array for equality
+     * @return true if all Objects in the given Array have an equivalent Object in this Array and 
+     * these equivalent Objects are all removed from this Array successfully
+     * @return false if NOT all Objects in the given Array have an equivalent Object in this Array,
+     * OR NOT all the equivalent Objects in this Array are removed successfully
      */
-    bool removeAll(Array a) {}
+    bool removeAll(Array *a) {}
 
     /**
      * @brief 
      * 
      * @param fromIndex 
      * @param toIndex 
+     * @return Array*
+     */
+    Array *removeRange(size_t fromIndex, size_t toIndex) {}
+
+    /**
+     * @brief 
+     * 
+     * @param size 
+     */
+    void resize(size_t size) {}
+
+    /**
+     * @brief 
+     * 
+     * @param a 
      * @return true 
      * @return false 
      */
-    bool removeRange(size_t fromIndex, size_t toIndex) {}
+    bool retainAll(Array *a) {}
+
+    /**
+     * @brief 
+     * 
+     * @param o 
+     * @param index 
+     * @return Object* 
+     */
+    Object *set(Object *o, size_t index) {}
 
     /**
      * @brief return the 
@@ -114,6 +205,21 @@ class Array : public Object
     size_t size() {}
 
     /**
+     * @brief 
+     * 
+     * @param beginIndex 
+     * @param endIndex 
+     * @return Array* 
+     */
+    Array *subset(size_t beginIndex, size_t endIndex) {}
+
+    /**
+     * @brief 
+     * 
+     */
+    void trimToSize() {}
+
+    /**
      * @brief returns true or false if this array is the same as the object
      * two arrays are considered equal if every element at each index in both arrays are the same/equal
      * 
@@ -121,40 +227,7 @@ class Array : public Object
      * @return true 
      * @return false 
      */
-    virtual bool equals(Object o) {}
-
-    /**
-     * @brief returns true or false if the array contains no elements
-     * 
-     * @return true 
-     * @return false 
-     */
-    bool isEmpty() {}
-
-    /**
-     * @brief returns the index of the first instance of Object o in the array if Object o exists
-     * if Object o is not in the array, return -1
-     * 
-     * @param o 
-     * @return size_t 
-     */
-    int indexOf(Object o) {}
-
-    /**
-     * @brief returns the index of the last instance of Object o in the array if Object o exists
-     * if Object o is not in the array, return -1
-     * 
-     * @param o 
-     * @return int 
-     */
-    int lastIndexOf(Object o) {}
-
-    /**
-     * @brief copy the entire array and returns a new instance of the array
-     * 
-     * @return Array 
-     */
-    Array copy() {}
+    bool equals(Object o) {}
 
     /**
      * @brief copy the array from fromIndex to toIndex (not including toIndex) 
@@ -165,11 +238,4 @@ class Array : public Object
      * @return Array 
      */
     Array subArray(size_t fromIndex, size_t toIndex) {}
-
-    /**
-     * @brief calculates and returns the hash for the array
-     * 
-     * @return size_t 
-     */
-    virtual size_t hash_me() {}
 };

@@ -18,7 +18,7 @@ class Object
      /**
      * @brief Copies this Object by initializing a new Object with the information from this Object
      * 
-     * @return Object* a copy of this object
+     * @return Object* a copy of this Object
      */
      virtual Object *clone() {}
 
