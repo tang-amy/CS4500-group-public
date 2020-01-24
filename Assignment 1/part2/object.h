@@ -1,48 +1,65 @@
 //lang::CwC
 
-#pragma once // indicates that this file is to be included only once
+#pragma once
 
 #include <stdio.h>
 
 /**
- * @brief Object class. _Some of_ this code was produced by following along with Prof. Vesely in class on Friday, January 10th, 2019.
- * The rest is original -- including print()
+ * @brief Object class. Represents an abstract datatype that can be created by any developer.
+ * 
+ * Any new datatype that a developer would like to implement can have this class as a parent class, so that all their
+ * datatypes can have a unified set of functions and a unified type.
+ * 
+ * @note Included functions inspired by the methods described in the interface for the Java 8 Object class:
+ * https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
  */
 class Object
 {
-public:
-    size_t hash_; // hash cache
+    /**
+     * @brief copies this Object by initializing a new Object with the information from this Object
+     * 
+     * @return Object* a copy of this object
+     */
+    virtual Object *clone()
+    {
+    }
 
-    Object() { hash_ = 0; }
-
-    // destructor
-    virtual ~Object() {}
-
+    /**
+     * @brief compares shallow equality between this object and another object
+     * 
+     * @param other the object to be compared to this one for equality
+     * @return true if the two objects are equal, i.e. have the same hashcode
+     * @return false if the two objects are not equal, i.e. have different hashcodes
+     */
     virtual bool equals(Object *other)
     {
-        return this == other;
     }
 
-    // returns the hash code value for this object
+    /**
+     * @brief calls the hash_me() helper function, caches its result, and returns it
+     * 
+     * @return size_t the hashcode for this object
+     */
     size_t hash()
     {
-        if (hash_ == 0)
-        {
-            hash_ = hash_me();
-        }
-
-        return hash_;
     }
 
-    // virtual is to indicate that this method may be overridden
+    /**
+     * @brief calculates the hashcode for this object
+     * 
+     * @return size_t the hashcode for this object
+     */
     virtual size_t hash_me()
     {
-        return reinterpret_cast<size_t>(this);
     }
 
-    // returns what to print
+    /**
+     * @brief returns a const char* representation of the information contained in this object, so that 
+     * it can be printed
+     * 
+     * @return const char* the "string" representation of this object
+     */
     virtual const char *print()
     {
-        return (char *)hash_;
     }
 };

@@ -1,4 +1,4 @@
-// lang::Cpp
+// lang::CwC
 
 #pragma once
 
@@ -16,9 +16,7 @@ class Array : public Object
      * @return true 
      * @return false 
      */
-    bool add(Object o)
-    {
-    }
+    bool add(Object *o) {}
 
     /**
      * @brief add the Object o (if it is the same type as the rest of the list) to the given 
@@ -27,18 +25,14 @@ class Array : public Object
      * @param o 
      * @param index 
      */
-    void add(Object o, size_t index)
-    {
-    }
+    void add(Object *o, size_t index) {}
 
     /**
      * @brief add all elements from Array a to the end of this array
      * 
      * @param a 
      */
-    void addAll(Array a)
-    {
-    }
+    void addAll(Array *a) {}
 
     /**
      * @brief add all elements from Array a to the given index in this array 
@@ -47,17 +41,13 @@ class Array : public Object
      * @param a 
      * @param index 
      */
-    void addAll(Array a, size_t index)
-    {
-    }
+    void addAll(Array *a, size_t index) {}
 
     /**
      * @brief clears all elements from the array
      * 
      */
-    void clear()
-    {
-    }
+    void clear() {}
 
     /**
      * @brief returns true or false if the object o is in the array
@@ -66,9 +56,7 @@ class Array : public Object
      * @return true 
      * @return false 
      */
-    bool contains(Object o)
-    {
-    }
+    bool contains(Object *o) {}
 
     /**
      * @brief get the size of the array (number of elements)
@@ -76,9 +64,7 @@ class Array : public Object
      * @param index 
      * @return Object 
      */
-    Object get(size_t index)
-    {
-    }
+    Object get(size_t index) {}
 
     /**
      * @brief remove the element at index in the array 
@@ -86,22 +72,16 @@ class Array : public Object
      * 
      * @param index 
      */
-    void remove(size_t index)
-    {
-    }
+    void remove(size_t index) {}
 
     /**
      * @brief removes the first instance of the Object o found in the array
-     * if Object o is not in the array, do nothing and return false
-     * if Object o is removed successfully, return true
      * 
      * @param o 
-     * @return true 
-     * @return false 
+     * @return true if Object o is removed successfully
+     * @return false if Object o is not in the array
      */
-    bool remove(Object o)
-    {
-    }
+    bool remove(Object *o) {}
 
     /**
      * @brief remove a subset of the array specified by Array a 
@@ -111,9 +91,7 @@ class Array : public Object
      * @return true 
      * @return false 
      */
-    bool removeAll(Array a)
-    {
-    }
+    bool removeAll(Array a) {}
 
     /**
      * @brief 
@@ -123,18 +101,14 @@ class Array : public Object
      * @return true 
      * @return false 
      */
-    bool removeRange(size_t fromIndex, size_t toIndex)
-    {
-    }
+    bool removeRange(size_t fromIndex, size_t toIndex) {}
 
     /**
      * @brief return the 
      * 
      * @return size_t 
      */
-    size_t size()
-    {
-    }
+    size_t size() {}
 
     /**
      * @brief returns true or false if this array is the same as the object
@@ -144,9 +118,7 @@ class Array : public Object
      * @return true 
      * @return false 
      */
-    virtual bool equals(Object o)
-    {
-    }
+    virtual bool equals(Object o) {}
 
     /**
      * @brief returns true or false if the array contains no elements
@@ -154,9 +126,7 @@ class Array : public Object
      * @return true 
      * @return false 
      */
-    bool isEmpty()
-    {
-    }
+    bool isEmpty() {}
 
     /**
      * @brief returns the index of the first instance of Object o in the array if Object o exists
@@ -165,9 +135,7 @@ class Array : public Object
      * @param o 
      * @return size_t 
      */
-    int indexOf(Object o)
-    {
-    }
+    int indexOf(Object o) {}
 
     /**
      * @brief returns the index of the last instance of Object o in the array if Object o exists
@@ -176,18 +144,14 @@ class Array : public Object
      * @param o 
      * @return int 
      */
-    int lastIndexOf(Object o)
-    {
-    }
+    int lastIndexOf(Object o) {}
 
     /**
      * @brief copy the entire array and returns a new instance of the array
      * 
      * @return Array 
      */
-    Array copy()
-    {
-    }
+    Array copy() {}
 
     /**
      * @brief copy the array from fromIndex to toIndex (not including toIndex) 
@@ -197,16 +161,12 @@ class Array : public Object
      * @param toIndex 
      * @return Array 
      */
-    Array subArray(size_t fromIndex, size_t toIndex)
-    {
-    }
+    Array subArray(size_t fromIndex, size_t toIndex) {}
 
     /**
      * @brief calculates and returns the hash for the array
      * 
      * @return size_t 
      */
-    virtual size_t hash_me()
-    {
-    }
+    virtual size_t hash_me() {}
 };
