@@ -179,57 +179,64 @@ class Array : public Object
     bool removeAll(Array *a) {}
 
     /**
-     * @brief 
+     * @brief Removes all Objects from this Array from the given start index (inclusive) to the
+     * given end index (exclusive) and returns those removed Objects
      * 
-     * @param fromIndex 
-     * @param toIndex 
-     * @return Array*
+     * @note Pulls the elements at and after @param toIndex up to the front by 
+     * @param toIndex - @param fromIndex
+     * 
+     * @param fromIndex the index at which to start removing Objects from this Array (inclusive)
+     * @param toIndex the index at which to stop removing Objects from this Array (exclusive)
+     * @return Array* an Array of the removed Objects
      */
     Array *removeRange(size_t fromIndex, size_t toIndex) {}
 
     /**
-     * @brief 
+     * @brief Changes the size of the underlying array to ensure that it will fit @param size number 
+     * of Objects
      * 
-     * @param size 
+     * @param size the size to set the underlying array to
      */
     void resize(size_t size) {}
 
     /**
-     * @brief 
+     * @brief Removes all Objects in this Array other than the ones that are equals() to any of
+     * the Objects in the given Array
      * 
-     * @param a 
-     * @return true 
-     * @return false 
+     * @param a the Array of Objects that are equivalent to the Objects in this Array to keep
+     * @return true if the removal of Objects not equivalent to any Object in the given Array is successful
+     * @return false if the removal of Objects not equivalent to any Object in the given Array is NOT successful
      */
     bool retainAll(Array *a) {}
 
     /**
-     * @brief 
+     * @brief Sets the Object at the given index in this Array to the given Object, and returns the reset Object
      * 
-     * @param o 
-     * @param index 
-     * @return Object* 
+     * @param o the Object to be set at the given index in this Array
+     * @param index the index at which to set the given Object, and remove the old Object
+     * @return Object* the Object that was replaced in this Array
      */
     Object *set(Object *o, size_t index) {}
 
     /**
-     * @brief return the 
+     * @brief Gets the size (i.e. number of elements) of this Array
      * 
-     * @return size_t 
+     * @return size_t the number of elements in this Array
      */
     size_t size() {}
 
     /**
-     * @brief 
+     * @brief Gets an Array that contains the Objects in the subset of this Array ranging from
+     * a given start index (inclusive) to a given end index (exclusive)
      * 
-     * @param beginIndex 
-     * @param endIndex 
-     * @return Array* 
+     * @param beginIndex the index at which to start taking the subset of this Array (inclusive)
+     * @param endIndex the index at which to stop taking the subset of this Array (exclusive)
+     * @return Array* an Array containing all the Objects of this Array from @param beginIndex to @param endIndex
      */
     Array *subset(size_t beginIndex, size_t endIndex) {}
 
     /**
-     * @brief 
+     * @brief sets the size of the underlying array to the number of Objects in the underlying array
      * 
      */
     void trimToSize() {}
