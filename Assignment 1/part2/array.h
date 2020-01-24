@@ -82,6 +82,21 @@ class Array : public Object
     bool contains(Object *o) {}
 
     /**
+     * @brief Checks that the given Object is equal to this Array, meaning the given Object is an Array, and that
+     * Array has the same number of Objects as this Array and those Objects are equivalent to the Objects in this
+     * Array and are in the same order as this Array
+     * 
+     * @param o the Object to be checked for equality
+     * @return true if:
+     *      1. The given Object is an Array
+     *      2. That Array has the same number of Objects as this Array
+     *      3. All the Objects in the given Array are the same as the ones in this Array, and
+     *      4. Are in the same order as the Objects in this Array
+     * @return false if any of the above conditions are not satisfied
+     */
+    bool equals(Object *o) {}
+
+    /**
      * @brief Gets the Object at the given index of this Array
      * 
      * @param index the index in this Array from which to get the Object
@@ -218,24 +233,4 @@ class Array : public Object
      * 
      */
     void trimToSize() {}
-
-    /**
-     * @brief returns true or false if this array is the same as the object
-     * two arrays are considered equal if every element at each index in both arrays are the same/equal
-     * 
-     * @param o 
-     * @return true 
-     * @return false 
-     */
-    bool equals(Object o) {}
-
-    /**
-     * @brief copy the array from fromIndex to toIndex (not including toIndex) 
-     * and return a new instance containing just that subsection of the array
-     * 
-     * @param fromIndex 
-     * @param toIndex 
-     * @return Array 
-     */
-    Array subArray(size_t fromIndex, size_t toIndex) {}
 };
