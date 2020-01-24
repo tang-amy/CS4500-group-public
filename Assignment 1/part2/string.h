@@ -327,47 +327,47 @@ class String : public Object
     bool startsWith(String *other, size_t offset) {}
 
     /**
-     * @brief 
+     * @brief Takes a subset of this String from the given index to the end of this String
      * 
-     * @param beginIndex 
-     * @return String* 
+     * @param beginIndex the index at which to start taking the subset of this String
+     * @return String* the subset of this String from @param beginIndex (inclusive) to the end
      */
     String *substring(size_t beginIndex) {}
 
     /**
-     * @brief 
+     * @brief Takes a subset of this String from the given begin index to the given end index 
      * 
-     * @param beginIndex 
-     * @param endIndex 
-     * @return String* 
+     * @param beginIndex the index at which to start taking the subset of this String (inclusive)
+     * @param endIndex the index at which to stop taking the subset of this String (exclusive)
+     * @return String* the subset of this String from @param beginIndex (inclusive) to @param endIndex (exclusive)
      */
     String *substring(size_t beginIndex, size_t endIndex) {}
 
     /**
-     * @brief 
+     * @brief return a char array representation of this String
      * 
-     * @return char* 
+     * @return char* the char array that contains all chars in this String
      */
     char *toCharArray() {}
 
     /**
-     * @brief 
+     * @brief converts all uppercase characters in this String to lowercase characters
      * 
-     * @return String* 
+     * @return String* a String with all characters of this String, but with all uppercase characters in lowercase
      */
     String *toLowerCase() {}
 
     /**
-     * @brief 
+     * @brief converts all lowercase characters in this String to uppercase characters
      * 
-     * @return String* 
+     * @return String* a String with all characters of this String, but with all lowercase characters in uppercase instead
      */
     String *toUpperCase() {}
 
     /**
-     * @brief 
+     * @brief removes all leading and trailing whitespaces in this String
      * 
-     * @return String* 
+     * @return String* a String with all characters of this String, but with leading and trailing whitespaces removed
      */
     String *trim() {}
 };

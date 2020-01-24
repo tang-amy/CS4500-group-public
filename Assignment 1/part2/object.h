@@ -46,10 +46,10 @@ class Object
      virtual size_t hash_me() {}
 
      /**
-     * @brief Returns a const char* representation of the information contained in this object, so that 
+     * @brief Returns a char array representation of the information contained in this object, so that 
      * it can be printed
      * 
-     * @return const char* the "string" representation of this object
+     * @return const char* the char array representation of this object
      */
      virtual const char *print() {}
 };
