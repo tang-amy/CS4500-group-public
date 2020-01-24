@@ -21,6 +21,13 @@ class String : public Object
     char charAt(int index) {}
 
     /**
+     * @brief copies this Object by initializing a new Object with the information from this Object
+     * 
+     * @return Object* a copy of this object
+     */
+    Object *clone() {}
+
+    /**
      * @brief Compares this string to the given string alphabetically.
      * 
      * @param other the given String to compare to this
@@ -70,11 +77,11 @@ class String : public Object
     bool endsWith(String *other) {}
 
     /**
-     * @brief Checks if this String and the given String have the same character sequence
+     * @brief compares shallow equality between this Object and another Object
      * 
-     * @param other the String to be compared to this String for equality
-     * @return true if both this String and the given @param other String have the same character sequence
-     * @return false if this String and the given @param other String have different character sequences
+     * @param other the Object to be compared to this one for equality
+     * @return true if the two Objects are equal, i.e. are both Strings and have the same character sequence
+     * @return false if the two Objects are not equal, i.e. not both String OR both Strings but have different character sequences
      */
     bool equals(Object *other) {}
 
@@ -188,6 +195,14 @@ class String : public Object
      * @return size_t the number of characters in this String
      */
     size_t length() {}
+
+    /**
+     * @brief returns a const char* representation of the information contained in this object, so that 
+     * it can be printed
+     * 
+     * @return const char* the "string" representation of this object
+     */
+    const char *print() {}
 
     /**
      * @brief Checks that a region of this String is equal to a region of another String
@@ -315,94 +330,44 @@ class String : public Object
      * @brief 
      * 
      * @param beginIndex 
-     * @param endIndex 
      * @return String* 
      */
-    String *subSequence(size_t beginIndex, size_t endIndex) {}
+    String *substring(size_t beginIndex) {}
 
     /**
      * @brief 
      * 
-     * @return size_t 
-     */
-    size_t length()
-    {
-    }
-
-    /**
-     * @brief calculates and returns the hash for the string
-     * 
-     * @return size_t 
-     */
-    size_t hash_me()
-    {
-    }
-
-<<<<<<< HEAD
-    // returns what to print
-=======
-    /**
-     * @brief checks if the string and the object are equal
-     * two strings are considered equal if they contain all the same chars in the same order 
-     * (i.e. "string" is equal to "string"
-     * 
-     * @param other 
-     * @return true 
-     * @return false 
-     */
-    bool equals(Object *other)
-    {
-    }
-
-    /**
-     * @brief concatenates (adds) other onto the end of the string and returns this result as a new string instance
-     * 
-     * @param other 
+     * @param beginIndex 
+     * @param endIndex 
      * @return String* 
      */
-    String *concat(String *other)
-    {
-    }
+    String *substring(size_t beginIndex, size_t endIndex) {}
 
     /**
-     * @brief returns what to print in format of const char*
+     * @brief 
      * 
-     * @return const char* 
+     * @return char* 
      */
->>>>>>> bfdec189731eebd4afe4089d7356a4c2fd029c64
-    const char *print()
-    {
-    }
+    char *toCharArray() {}
 
-<<<<<<< HEAD
-    // appends ONE character to the String
-    void append(char other)
-    {
-        // store the current contents in another array
-        char *new_str = new char[size_ + 2];
-        strcpy(new_str, str_);
-        new_str[size_] = other;
-        new_str[size_ + 1] = '\0';
-
-        delete[] str_;
-        str_ = new_str;
-
-        // update the size of the current string
-        size_++;
-    }
-
-    size_t size()
-    {
-        return size_;
-=======
     /**
-     * @brief Compares this string to the given string alphabetically.
+     * @brief 
      * 
-     * @param other the given string to compare to this
-     * @return int -1 if the given string is earlier alphabetically, 0 if the strings are the same, 1 if the given string is later alphabetically than this string.
+     * @return String* 
      */
-    int compareTo(String *other)
-    {
->>>>>>> bfdec189731eebd4afe4089d7356a4c2fd029c64
-    }
+    String *toLowerCase() {}
+
+    /**
+     * @brief 
+     * 
+     * @return String* 
+     */
+    String *toUpperCase() {}
+
+    /**
+     * @brief 
+     * 
+     * @return String* 
+     */
+    String *trim() {}
 };
