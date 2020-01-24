@@ -214,7 +214,7 @@ class Array : public Object
      * 
      * @param o the Object to be set at the given index in this Array
      * @param index the index at which to set the given Object, and remove the old Object
-     * @return Object* the Object that was replaced in this Array
+     * @return Object* the Object that was replaced in this Array; if invalid due to indexing error, will return NULL
      */
     Object *set(Object *o, size_t index) {}
 
