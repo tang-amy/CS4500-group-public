@@ -144,7 +144,7 @@ class Array : public Object
      * @return true 
      * @return false 
      */
-    bool equals(Object o)
+    virtual bool equals(Object o)
     {
     }
 
@@ -198,6 +198,15 @@ class Array : public Object
      * @return Array 
      */
     Array subArray(size_t fromIndex, size_t toIndex)
+    {
+    }
+
+    /**
+     * @brief calculates and returns the hash for the array
+     * 
+     * @return size_t 
+     */
+    virtual size_t hash_me()
     {
     }
 };
