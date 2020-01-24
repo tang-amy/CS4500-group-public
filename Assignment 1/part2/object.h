@@ -16,50 +16,40 @@
 class Object
 {
      /**
-     * @brief copies this Object by initializing a new Object with the information from this Object
+     * @brief Copies this Object by initializing a new Object with the information from this Object
      * 
      * @return Object* a copy of this object
      */
-     virtual Object *clone()
-     {
-     }
+     virtual Object *clone() {}
 
      /**
-     * @brief compares shallow equality between this object and another object
+     * @brief Compares shallow equality between this Object and another Object
      * 
-     * @param other the object to be compared to this one for equality
-     * @return true if the two objects are equal, i.e. have the same hashcode
-     * @return false if the two objects are not equal, i.e. have different hashcodes
+     * @param other the Object to be compared to this Object for equality
+     * @return true if the two Objects are equal, i.e. have the same hashcode
+     * @return false if the two Objects are not equal, i.e. have different hashcodes
      */
-     virtual bool equals(Object *other)
-     {
-     }
+     virtual bool equals(Object *other) {}
 
      /**
-     * @brief calls the hash_me() helper function, caches its result, and returns it
+     * @brief Calls the hash_me() helper function, caches its result, and returns it
      * 
      * @return size_t the hashcode for this object
      */
-     size_t hash()
-     {
-     }
+     size_t hash() {}
 
      /**
-     * @brief calculates the hashcode for this object
+     * @brief Calculates the hashcode for this object
      * 
      * @return size_t the hashcode for this object
      */
-     virtual size_t hash_me()
-     {
-     }
+     virtual size_t hash_me() {}
 
      /**
-     * @brief returns a const char* representation of the information contained in this object, so that 
+     * @brief Returns a const char* representation of the information contained in this object, so that 
      * it can be printed
      * 
      * @return const char* the "string" representation of this object
      */
-     virtual const char *print()
-     {
-     }
+     virtual const char *print() {}
 };
