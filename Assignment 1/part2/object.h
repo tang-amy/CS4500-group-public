@@ -5,44 +5,51 @@
 #include <stdio.h>
 
 /**
- * @brief Object class. _Some of_ this code was produced by following along with Prof. Vesely in class on Friday, January 10th, 2019.
- * The rest is original -- including print()
+ * @brief Object class. _Some of_ this code/functions were produced by following along with Prof. Vesely in class on Friday, January 10th, 2019.
+ * The rest is original -- including print(). 
  */
 class Object
 {
 public:
-    size_t hash_; // hash cache
-
-    Object() { hash_ = 0; }
-
-    // destructor
-    virtual ~Object() {}
-
+    /**
+     * @brief returns if two Objects are equal to each other defines equals as location of the objects
+     * virtual is to indicate that this method may be overridden
+     * 
+     * @param other 
+     * @return true 
+     * @return false 
+     */
     virtual bool equals(Object *other)
     {
-        return this == other;
     }
 
-    // returns the hash code value for this object
+    /**
+     * @brief returns the hash code value for this object
+     * 
+     * @return size_t 
+     */
     size_t hash()
     {
-        if (hash_ == 0)
-        {
-            hash_ = hash_me();
-        }
-
-        return hash_;
     }
 
-    // virtual is to indicate that this method may be overridden
+    /**
+     * @brief calculates the hash code value 
+     * virtual is to indicate that this method may be overridden
+     * 
+     * @return size_t 
+     */
     virtual size_t hash_me()
     {
         return reinterpret_cast<size_t>(this);
     }
 
-    // returns what to print
+    /**
+     * @brief returns what to print
+     * virtual is to indicate that this method may be overridden
+     * 
+     * @return size_t 
+     */
     virtual const char *print()
     {
-        return (char *)hash_;
     }
 };

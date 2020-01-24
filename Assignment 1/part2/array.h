@@ -4,9 +4,12 @@
 
 #include "object.h"
 
-// based off of arraylists:
-// https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
-
+/**
+ * @brief Array class. This is somewhat based off of how ArrayLists are implemented 
+ * in Java8 (https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)
+ * except that this class does not have the functionality of a list. 
+ * 
+ */
 class Array : public Object
 {
     /**
@@ -144,7 +147,7 @@ class Array : public Object
      * @return true 
      * @return false 
      */
-    virtual bool equals(Object o)
+    bool equals(Object o)
     {
     }
 
