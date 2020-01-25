@@ -287,12 +287,82 @@ void testRemoveRange()
     Array c = a.removeRange(2, 5);
     t_false(a.equals(c));
     t_true(c.equals(b));
+    OK('remove range');
 }
 
+/**
+ * @brief testing that function returns false if we try to remove an item not in the array and that function returns
+ * true if we are removing an item in array as well as that only first instance of item is removed
+ * 
+ * also testing removing by index and that if you try to remove from an nonexistent index, you will get NULL returned
+ */
 void testRemove()
 {
-    Array a = new Array([ 'b', 'c', 'd', 'e', 'f', 'g', 'h' ]);
-    Array b = new Array([ 'b', 'c', 'g', 'h' ]);
+    Array a = new Array([ 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'f' ]);
+    Array b = new Array([ 'b', 'c', 'd', 'e', 'g', 'h', 'f' ]);
+    Array c = new Array([ 'b', 'd', 'e', 'g', 'h', 'f' ]);
+    t_false(a.remove('Z'));
+    t_true(a.remove('f'));
+    t_true(a.equals(b));
+    OK('remove by object');
+    t_true(a.remove(1) == 'c');
+    t_true(a.equals(c));
+    // invalid remove nothing changes
+    t_false(a.remove(100) == NULL);
+    t_true(a.equals(c));
+}
+
+/**
+ * @brief checks last index returns the last instance that an object is found and that if there is no instance of that object
+ * in that array, the function returns -1
+ * 
+ */
+void testLastIndexOf()
+{
+    Array a = new Array([ 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'f' ]);
+    t_true(a.lastIndexOf('f') == 7);
+    t_true(a.lastIndexOf('Z') == -1);
+    OK("last index");
+}
+
+/**
+ * @brief tests function on empty array and nonempty array (by number of elements in array not by array's data size)
+ * should remain uneffected by resize
+ * 
+ */
+void testIsEmpty()
+{
+    Array a = new Array([ 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'f' ]);
+    Array c = new Array();
+    t_false(a.isEmpty());
+    t_true(c.isEmpty());
+    c.resize(15);
+    t_true(c.isEmpty());
+    OK("empty");
+}
+
+/**
+ * @brief checks indexOf returns the first instance that an object is found and that if there is no instance of that object
+ * in that array, the function returns -1
+ * 
+ */
+void testIndexOf()
+{
+    Array a = new Array([ 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'f' ]);
+    t_true(a.IndexOf('f') == 5);
+    t_true(a.IndexOf('Z') == -1);
+    OK("indexOf");
+}
+
+/**
+ * @brief tests that you can get an object by its index in the array and if the index is invalid, return NULL
+ * 
+ */
+void testGet()
+{
+    Array a = new Array([ 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'f' ]);
+    t_true(a.get(5) == 'f');
+    t_true(a.get(1000) == NULL);
 }
 
 int main()
@@ -304,5 +374,10 @@ int main()
     testSubset();
     testRemoveRange();
     testRemoveAll)();
+    testRemove();
+    testLastIndexOf();
+    testIsEmpty();
+    testIndexOf();
+    testGet();
     return 0;
 }
