@@ -363,6 +363,100 @@ void testGet()
     Array a = new Array([ 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'f' ]);
     t_true(a.get(5) == 'f');
     t_true(a.get(1000) == NULL);
+    OK('get')
+}
+
+/**
+ * @brief testing add
+ * 1. add to the end of the array
+ * 2. add to the middle by specifying index
+ * 3. does not allow you to add to an index that is nonexistent in the array (if index > size)
+ * 
+ * 
+ */
+void testAdd()
+{
+    Array a = new Array([ 'b', 'c', 'd', 'e' ]);
+    Array b = new Array([ 'b', 'd', 'e' ]);
+    Array c = new Array([ 'b', 'd' ]);
+    t_false(c.equals(b));
+    t_true(c.add('e'));
+    t_true(c.equals(b));
+    t_false(c.equals(a));
+    t_true(c.add('c', 1));
+    t_true(c.equals(a));
+    t_false(c.add('g', 109);
+    t_true(c.equals(a));
+    OK('add');
+}
+
+/**
+ * @brief testing add all with case where only array is given, array and index, empty array, empty array and index
+ * 
+ */
+void testAddAll()
+{
+    Array a = new Array([ 'c', 'b', 'd', 'e', 'f' ]);
+    Array b = new Array([ 'b', 'd', 'e', 'f' ]);
+    Array c = new Array(['c']);
+    Array d = c.addAll(b);
+    t_true(d.equals(a));
+    Array e = new Array([ 'Z', 'X' ]);
+    Array f = new Array([ 'c', 'b', 'Z', 'X', 'd', 'e', 'f' ]);
+    Array g = d.addAll(e, 2);
+    t_true(g.equals(f));
+    OK('add all');
+    Array empty = new Array();
+    g.add(empty);
+    t_true(g.equals(f)); // should still be equal because theres no change
+    g.add(empty, 5);
+    t_true(g.equals(f)); // should still be equal because theres no change
+    OK('add All');
+}
+
+/**
+ * @brief testing on a empty array and nonempty array
+ * 
+ */
+void testClone()
+{
+    Array a = new Array([ 'c', 'b', 'd', 'e', 'f' ]);
+    Array b = new Array();
+    Array c = a.clone();
+    Array d = d.clone();
+    t_true(a.equals(c));
+    t_true(b.equals(d));
+    OK('clone');
+}
+
+/**
+ * @brief testing contains on empty array and nonempty array where element is in and not in the nonempty array
+ * 
+ */
+void testContains()
+{
+    Array a = new Array([ 'c', 'b', 'd', 'e', 'f' ]);
+    Array b = new Array();
+    t_true(a.contains(''b'));
+    t_false(a.contains(new Object()));
+    t_false(b.contains(new String('hello')));
+    OK('contains');
+}
+
+/**
+ * @brief remove objects but also compare the memory that is allocated which should not be changed
+ * 
+ */
+void testClear()
+{
+    Array a = new Array([ 'c', 'b', 'd', 'e', 'f' ]);
+    Array b = new Array();
+    size_t aMem = a->data.capacity();
+    t_false(a.equals(b));
+    t_true(a->data.capacity() == aMem);
+    a.clear();
+    t_true(a.equals(b));                // the elements are removed so it should be equivalent to an empty array
+    t_true(a->data.capacity() == aMem); // this should remain true since althought we remove the elements, we are not changing the size
 }
 
 int main()
@@ -379,5 +473,8 @@ int main()
     testIsEmpty();
     testIndexOf();
     testGet();
+    testAdd();
+    testAddAll();
+    testContains();
     return 0;
 }
