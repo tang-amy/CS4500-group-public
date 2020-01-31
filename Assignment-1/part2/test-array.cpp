@@ -95,9 +95,9 @@ void testObjects()
     assert(a->size() == 2);
     assert(a->get(0)->equals(o));
     assert(a->get(1)->equals(o2));
-    assert(a->addAll(a2, 0); // add an empty array
+    assert(a->addAll(a2, 0)); // add an empty array
     // check nothing has changed
-    assert(a->size() == 2); 
+    assert(a->size() == 2);
     assert(a->get(0)->equals(o));
     assert(a->get(1)->equals(o2));
 
@@ -105,29 +105,29 @@ void testObjects()
     assert(a2->addAll(a));
     // a2=[o,o2]
     assert(a2->size() == 2);
-    
+
     // checking adding nonempty array to a given index in a nonempty array
-    a2->add(o3); // a2=[o,o2, o3]
+    a2->add(o3);      // a2=[o,o2, o3]
     a2->addAll(a, 1); // a2=[o, o, o2, o2, o3]
     assert(a2->size() == 5);
     // checking elements 1 by 1
-    assert(a2.get(0)->equals(o));
-    assert(a2.get(1)->equals(o));
-    assert(a2.get(2)->equals(o2));
-    assert(a2.get(3)->equals(o2));
-    assert(a2.get(4)->equals(o3));
+    assert(a2->get(0)->equals(o));
+    assert(a2->get(1)->equals(o));
+    assert(a2->get(2)->equals(o2));
+    assert(a2->get(3)->equals(o2));
+    assert(a2->get(4)->equals(o3));
 
     // checking adding an array to itself
-    a->add(o3); // a=[o,o2, o3]
+    a->add(o3);      // a=[o,o2, o3]
     a->addAll(a, 1); // a2=[o, o, o2, o3, o2, o3]
     assert(a->size() == 6);
     // check each element individually
-    assert(a2.get(0)->equals(o));
-    assert(a2.get(1)->equals(o));
-    assert(a2.get(2)->equals(o2));
-    assert(a2.get(3)->equals(o3));
-    assert(a2.get(4)->equals(o2));
-    assert(a2.get(5)->equals(o3));
+    assert(a2->get(0)->equals(o));
+    assert(a2->get(1)->equals(o));
+    assert(a2->get(2)->equals(o2));
+    assert(a2->get(3)->equals(o3));
+    assert(a2->get(4)->equals(o2));
+    assert(a2->get(5)->equals(o3));
 
     delete a;
     delete a2;
