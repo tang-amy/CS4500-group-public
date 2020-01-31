@@ -3,7 +3,6 @@
 #pragma once
 
 #include "object.h"
-#include "helper.h"
 #include "string.h"
 
 /**
@@ -14,6 +13,7 @@
  */
 class Array : public Object
 {
+public:
     /**
      * @brief Adds a given Object to the end of the Array if that Object is of the same type as the rest of the Objects in the Array
      * 
@@ -35,7 +35,7 @@ class Array : public Object
      * @return true if the Object was added successfully
      * @return false if the Object was NOT added successfully
      */
-    void add(Object *o, size_t index) {}
+    bool add(Object *o, size_t index) {}
 
     /**
      * @brief Adds all Objects from a given Array to the end of this Array, if the Objects in that Array are of the same type
@@ -45,7 +45,7 @@ class Array : public Object
      * @return true if all the Objects in the given Array were added successfully
      * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
-    void addAll(Array *a) {}
+    bool addAll(Array *a) {}
 
     /**
      * @brief Adds all Objects from a given Array at the given index in this Array, if the Objects in that Array are of the same type
@@ -58,7 +58,7 @@ class Array : public Object
      * @return true if all the Objects in the given Array were added successfully
      * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
-    void addAll(Array *a, size_t index) {}
+    bool addAll(Array *a, size_t index) {}
 
     /**
      * @brief Removes all Objects from this Array
@@ -141,6 +141,7 @@ class Array : public Object
  */
 class StrArray : public Object
 {
+public:
     /**
      * @brief Adds a given String to the end of the Array if that String is of the same type as the rest of the Strings in the Array
      * 
@@ -162,7 +163,7 @@ class StrArray : public Object
      * @return true if the Object was added successfully
      * @return false if the Object was NOT added successfully
      */
-    void add(String *s, size_t index) {}
+    bool add(String *s, size_t index) {}
 
     /**
      * @brief Adds all Strings from a given Array to the end of this Array, if the Objects in that Array are of the same type
@@ -172,7 +173,7 @@ class StrArray : public Object
      * @return true if all the Objects in the given Array were added successfully
      * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
-    void addAll(StrArray *a) {}
+    bool addAll(StrArray *a) {}
 
     /**
      * @brief Adds all Objects from a given Array at the given index in this Array, if the Objects in that Array are of the same type
@@ -185,7 +186,7 @@ class StrArray : public Object
      * @return true if all the Objects in the given Array were added successfully
      * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
-    void addAll(StrArray *a, size_t index) {}
+    bool addAll(StrArray *a, size_t index) {}
 
     /**
      * @brief Removes all Objects from this Array
@@ -268,6 +269,7 @@ class StrArray : public Object
  */
 class FloatArray : public Object
 {
+public:
     /**
      * @brief Adds a given String to the end of the Array if that String is of the same type as the rest of the Strings in the Array
      * 
@@ -289,7 +291,7 @@ class FloatArray : public Object
      * @return true if the Object was added successfully
      * @return false if the Object was NOT added successfully
      */
-    void add(float f, size_t index) {}
+    bool add(float f, size_t index) {}
 
     /**
      * @brief Adds all Strings from a given Array to the end of this Array, if the Objects in that Array are of the same type
@@ -299,7 +301,7 @@ class FloatArray : public Object
      * @return true if all the Objects in the given Array were added successfully
      * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
-    void addAll(FloatArray *a) {}
+    bool addAll(FloatArray *a) {}
 
     /**
      * @brief Adds all Objects from a given Array at the given index in this Array, if the Objects in that Array are of the same type
@@ -312,7 +314,7 @@ class FloatArray : public Object
      * @return true if all the Objects in the given Array were added successfully
      * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
-    void addAll(FloatArray *a, size_t index) {}
+    bool addAll(FloatArray *a, size_t index) {}
 
     /**
      * @brief Removes all Objects from this Array
@@ -395,6 +397,7 @@ class FloatArray : public Object
  */
 class IntArray : public Object
 {
+public:
     /**
      * @brief Adds a given String to the end of the Array if that String is of the same type as the rest of the Strings in the Array
      * 
@@ -416,7 +419,7 @@ class IntArray : public Object
      * @return true if the Object was added successfully
      * @return false if the Object was NOT added successfully
      */
-    void add(int i, size_t index) {}
+    bool add(int i, size_t index) {}
 
     /**
      * @brief Adds all Strings from a given Array to the end of this Array, if the Objects in that Array are of the same type
@@ -426,7 +429,7 @@ class IntArray : public Object
      * @return true if all the Objects in the given Array were added successfully
      * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
-    void addAll(IntArray *a) {}
+    bool addAll(IntArray *a) {}
 
     /**
      * @brief Adds all Objects from a given Array at the given index in this Array, if the Objects in that Array are of the same type
@@ -439,7 +442,7 @@ class IntArray : public Object
      * @return true if all the Objects in the given Array were added successfully
      * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
-    void addAll(IntArray *a, size_t index) {}
+    bool addAll(IntArray *a, size_t index) {}
 
     /**
      * @brief Removes all Objects from this Array
@@ -522,6 +525,7 @@ class IntArray : public Object
  */
 class BoolArray : public Object
 {
+public:
     /**
      * @brief Adds a given String to the end of the Array if that String is of the same type as the rest of the Strings in the Array
      * 
@@ -543,7 +547,7 @@ class BoolArray : public Object
      * @return true if the Object was added successfully
      * @return false if the Object was NOT added successfully
      */
-    void add(bool b, size_t index) {}
+    bool add(bool b, size_t index) {}
 
     /**
      * @brief Adds all Strings from a given Array to the end of this Array, if the Objects in that Array are of the same type
@@ -553,7 +557,7 @@ class BoolArray : public Object
      * @return true if all the Objects in the given Array were added successfully
      * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
-    void addAll(BoolArray *a) {}
+    bool addAll(BoolArray *a) {}
 
     /**
      * @brief Adds all Objects from a given Array at the given index in this Array, if the Objects in that Array are of the same type
@@ -566,7 +570,7 @@ class BoolArray : public Object
      * @return true if all the Objects in the given Array were added successfully
      * @return false if at least one of the Objects in the given Array were NOT added successfully
      */
-    void addAll(BoolArray *a, size_t index) {}
+    bool addAll(BoolArray *a, size_t index) {}
 
     /**
      * @brief Removes all Objects from this Array
