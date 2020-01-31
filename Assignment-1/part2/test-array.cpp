@@ -123,12 +123,12 @@ void testObjects()
     a->addAll(a, 1); // a2=[o, o, o2, o3, o2, o3]
     assert(a->size() == 6);
     // check each element individually
-    assert(a2->get(0)->equals(o));
-    assert(a2->get(1)->equals(o));
-    assert(a2->get(2)->equals(o2));
-    assert(a2->get(3)->equals(o3));
-    assert(a2->get(4)->equals(o2));
-    assert(a2->get(5)->equals(o3));
+    assert(a->get(0)->equals(o));
+    assert(a->get(1)->equals(o));
+    assert(a->get(2)->equals(o2));
+    assert(a->get(3)->equals(o3));
+    assert(a->get(4)->equals(o2));
+    assert(a->get(5)->equals(o3));
 
     delete a;
     delete a2;
@@ -257,12 +257,12 @@ void testString()
     a->addAll(a, 1); // a2=[o, o, o2, o3, o2, o3]
     assert(a->size() == 6);
     // check each element individually
-    assert(a2->get(0)->equals(o));
-    assert(a2->get(1)->equals(o));
-    assert(a2->get(2)->equals(o2));
-    assert(a2->get(3)->equals(o3));
-    assert(a2->get(4)->equals(o2));
-    assert(a2->get(5)->equals(o3));
+    assert(a->get(0)->equals(o));
+    assert(a->get(1)->equals(o));
+    assert(a->get(2)->equals(o2));
+    assert(a->get(3)->equals(o3));
+    assert(a->get(4)->equals(o2));
+    assert(a->get(5)->equals(o3));
 
     delete a;
     delete a2;
@@ -391,12 +391,12 @@ void testInt()
     a->addAll(a, 1); // a2=[o, o, o2, o3, o2, o3]
     assert(a->size() == 6);
     // check each element individually
-    assert(a2->get(0) == 9696);
-    assert(a2->get(1) == 9696);
-    assert(a2->get(2) == 567);
-    assert(a2->get(3) == 6666);
-    assert(a2->get(4) == 567);
-    assert(a2->get(5) == 6666);
+    assert(a->get(0) == 9696);
+    assert(a->get(1) == 9696);
+    assert(a->get(2) == 567);
+    assert(a->get(3) == 6666);
+    assert(a->get(4) == 567);
+    assert(a->get(5) == 6666);
 
     delete a;
     delete a2;
@@ -417,43 +417,43 @@ void testFloat()
     assert(a->add(o2));     // a = [o, o1, o2]
     assert(a->size() == 3); // check size
     // check individual elements
-    assert(a->get(0) == 9696.6);
-    assert(a->get(1) == 1234.6);
-    assert(a->get(2) == 567.6);
+    assert(a->get(0) == o);
+    assert(a->get(1) == o1);
+    assert(a->get(2) == o2);
 
     // insert something in the middle and recheck elements
     a->add(o3, 2);          // a = [o, o1, o3, o2]
     assert(a->size() == 4); // check size
     // check individual elements
-    assert(a->get(0) == 9696.6);
-    assert(a->get(1) == 1234.6);
-    assert(a->get(2) == 6666.6);
-    assert(a->get(3) == 567.6);
+    assert(a->get(0) == o);
+    assert(a->get(1) == o1);
+    assert(a->get(2) == o3);
+    assert(a->get(3) == o2);
 
     // removing a float
-    assert(a->remove(1) == 1234.6); // a = [o, o3, o2]
+    assert(a->remove(1) == o1); // a = [o, o3, o2]
     assert(a->size() == 3);
     // check if remainder of array is correct after removing 1 element
-    assert(a->get(1) == 6666.6);
-    assert(a->get(2) == 567.6);
+    assert(a->get(1) == o3);
+    assert(a->get(2) == o2);
 
     // check for the index of float
     assert(a->indexOf(o) == 0);
     assert(a->indexOf(o1) == -1);
 
     // setting the float at 3 to be the removed float from before
-    assert(a->set(o1, 1) == 6666.6); // a = [o, o1, o2]
+    assert(a->set(o1, 1) == o3); // a = [o, o1, o2]
     assert(a->size() == 3);
-    assert(a->get(0) == 9696.6); // check if float before was changed
-    assert(a->get(1) == 1234.6); // check float was changed
-    assert(a->get(2) == 567.6);  // checking float after is unchanged
+    assert(a->get(0) == o);  // check if float before was changed
+    assert(a->get(1) == o1); // check float was changed
+    assert(a->get(2) == o2); // checking float after is unchanged
 
     // try setting the same float
-    assert(a->set(o1, 1) == 1234.6); // a = [o, o1, o2]
+    assert(a->set(o1, 1) == o1); // a = [o, o1, o2]
     assert(a->size() == 3);
-    assert(a->get(0) == 9696.6); // check if float before was changed
-    assert(a->get(1) == 1234.6); // check float was changed
-    assert(a->get(2) == 567.6);  // checking float after is unchanged
+    assert(a->get(0) == o);  // check if float before was changed
+    assert(a->get(1) == o1); // check float was changed
+    assert(a->get(2) == o2); // checking float after is unchanged
 
     // clear array and add floats
     a->clear(); // a = []
@@ -491,13 +491,13 @@ void testFloat()
     // a=[o,o2]
     // check nothing has changed
     assert(a->size() == 2);
-    assert(a->get(0) == 9696.6);
-    assert(a->get(1) == 567.6);
+    assert(a->get(0) == o);
+    assert(a->get(1) == o2);
     assert(a->addAll(a2, 0)); // add an empty array
     // check nothing has changed
     assert(a->size() == 2);
-    assert(a->get(0) == 9696.6);
-    assert(a->get(1) == 567.6);
+    assert(a->get(0) == o1);
+    assert(a->get(1) == o2);
 
     // checking adding nonempty array to an empty array
     assert(a2->addAll(a));
@@ -509,23 +509,23 @@ void testFloat()
     a2->addAll(a, 1); // a2=[o, o, o2, o2, o3]
     assert(a2->size() == 5);
     // checking elements 1 by 1
-    assert(a2->get(0) == 9696.6);
-    assert(a2->get(1) == 9696.6);
-    assert(a2->get(2) == 567.6);
-    assert(a2->get(3) == 567.6);
-    assert(a2->get(4) == 6666.6);
+    assert(a2->get(0) == o);
+    assert(a2->get(1) == o);
+    assert(a2->get(2) == o2);
+    assert(a2->get(3) == o2);
+    assert(a2->get(4) == o3);
 
     // checking adding an array to itself
     a->add(o3);      // a=[o,o2, o3]
     a->addAll(a, 1); // a2=[o, o, o2, o3, o2, o3]
     assert(a->size() == 6);
     // check each element individually
-    assert(a2->get(0) == 9696.6);
-    assert(a2->get(1) == 9696.6);
-    assert(a2->get(2) == 567.6);
-    assert(a2->get(3) == 6666.6);
-    assert(a2->get(4) == 567.6);
-    assert(a2->get(5) == 6666.6);
+    assert(a->get(0) == o);
+    assert(a->get(1) == o);
+    assert(a->get(2) == o2);
+    assert(a->get(3) == o3);
+    assert(a->get(4) == o2);
+    assert(a->get(5) == o3);
 
     delete a;
     delete a2;
@@ -649,12 +649,12 @@ void testBool()
     a->addAll(a, 1); // a2=[o, o, o2, o3, o2, o3]
     assert(a->size() == 6);
     // check each element individually
-    assert(a2->get(0) == true);
-    assert(a2->get(1) == true);
-    assert(a2->get(2) == false);
-    assert(a2->get(3) == false);
-    assert(a2->get(4) == false);
-    assert(a2->get(5) == false);
+    assert(a->get(0) == true);
+    assert(a->get(1) == true);
+    assert(a->get(2) == false);
+    assert(a->get(3) == false);
+    assert(a->get(4) == false);
+    assert(a->get(5) == false);
 
     delete a;
     delete a2;
