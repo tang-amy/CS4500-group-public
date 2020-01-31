@@ -15,6 +15,7 @@
  */
 class Object
 {
+public:
      /**
      * @brief Copies this Object by initializing a new Object with the information from this Object
      * 
