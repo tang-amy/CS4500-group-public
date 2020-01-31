@@ -72,10 +72,11 @@ void testObjects()
     Array *a2 = new Array();
     a2->add(o);
     a2->add(o2);
-    // a2 = [o, ]
+    // a2 = [o, o2]
     // a2 should match now
     assert(a->equals(a2));
-    a2->add(o4);
+    Object *o4 = new Object();
+    a2->add(o4);            // a2 = [o, o2, o4]
     assert(!a->equals(a2)); // added another object so now it should be false
     // clear both and check
     a->clear();
@@ -86,8 +87,8 @@ void testObjects()
     assert(a3->equals(a2));
 
     // checking addAll with adding an empty array
-    a->(o);
-    a->(o2);                // a=[o,o2]
+    a->add(o);
+    a->add(o2);             // a=[o,o2]
     assert(a->size() == 2); // check size
     assert(a->addAll(a2));  // add an empty array
     // a=[o,o2]
