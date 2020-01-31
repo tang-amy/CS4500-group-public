@@ -12,6 +12,7 @@
  */
 class String : public Object
 {
+public:
     /**
      * @brief returns the char at the given index
      * 
