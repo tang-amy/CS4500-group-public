@@ -221,7 +221,7 @@ class StrArray : public Object
      * 
      * @return size_t the hashcode for this Array
      */
-    size_t hash_me() {}
+    size_t hash() {}
 
     /**
      * @brief Gets the index of this Array containing the first instance of an Object that is equals()
@@ -475,7 +475,7 @@ class IntArray : public Object
      * 
      * @return size_t the hashcode for this Array
      */
-    size_t hash_me() {}
+    size_t hash() {}
 
     /**
      * @brief Gets the index of this Array containing the first instance of an Object that is equals()
@@ -602,7 +602,7 @@ class BoolArray : public Object
      * 
      * @return size_t the hashcode for this Array
      */
-    size_t hash_me() {}
+    size_t hash() {}
 
     /**
      * @brief Gets the index of this Array containing the first instance of an Object that is equals()
