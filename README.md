@@ -1,2 +1,3 @@
-# CS4500-group-public
-public repo for CS4500 code
+Arrays
+
+functionality is similar to Java's ArrayLists (https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)
